@@ -5,7 +5,7 @@ A small script to check coin prices every 10 seconds(default) on https://www.coi
 ### Install and Run
 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 cp config-example.py config.py
 ```
 
