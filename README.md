@@ -21,4 +21,4 @@ python alert.py
 2. Add Programmable SMS to the project
 3. Add Phone Numbers(I think...)
 2. Get a number, the free one is fine for most cases
-3. Add the account info the to config.py file
+3. Add the account info to the config.py file
