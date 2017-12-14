@@ -11,3 +11,6 @@ coin = "ripple"
 minimum = "0.000048"
 price_type = "btc"
 
+#api check
+api_interval = 10 #in seconds
+

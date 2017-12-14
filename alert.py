@@ -1,12 +1,12 @@
 import json, sched, time, urllib2
-
 from twilio.rest import Client
-
 import config
 
-s = sched.scheduler(time.time, time.sleep)
+print('''***
+Checking Coin Market Cap every %d seconds for %s.
 
-print("https://api.coinmarketcap.com/v1/ticker/%s/" % config.coin)
+Price Alert set to %s %s   
+***''' %(config.api_interval, config.coin.capitalize(), config.minimum, config.price_type.upper()))
 
 def sendSMS(body):
 	client = Client(config.account_sid, config.auth_token)
@@ -29,9 +29,11 @@ def checkPrice(sc):
 	else:
 		print("we good")
 
-	s.enter(10, 1, checkPrice, (sc,))
+	s.enter(config.api_interval, 1, checkPrice, (sc,))
 
-s.enter(10, 1, checkPrice, (s,))
+s = sched.scheduler(time.time, time.sleep)
+
+s.enter(config.api_interval, 1, checkPrice, (s,))
 s.run()
 
 
